@@ -4,6 +4,12 @@
  */
 package com.poo.trabalho_final.view;
 
+import com.poo.trabalho_final.controller.SingleRootFileSystemView;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileSystemView;
+
 /**
  *
  * @author Computacao
@@ -50,6 +56,11 @@ public class Home extends javax.swing.JFrame {
         menuTripulante.add(mItemTripulanteCadastro);
 
         mItemTripulanteExclusao.setText("Excluir");
+        mItemTripulanteExclusao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mItemTripulanteExclusaoActionPerformed(evt);
+            }
+        });
         menuTripulante.add(mItemTripulanteExclusao);
 
         jMenuBar1.add(menuTripulante);
@@ -95,6 +106,24 @@ public class Home extends javax.swing.JFrame {
         TripulanteCadastro tripulanteCadastro = new TripulanteCadastro();
         tripulanteCadastro.setVisible(true);
     }//GEN-LAST:event_mItemTripulanteCadastroActionPerformed
+
+    private void mItemTripulanteExclusaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mItemTripulanteExclusaoActionPerformed
+        File root = new File("./data/tripulantes");
+        FileSystemView fsv = new SingleRootFileSystemView(root); 
+        JFileChooser fileChooser = new JFileChooser(root, fsv);
+        fileChooser.getActionMap().get("New Folder").setEnabled(false);
+        fileChooser.setDialogType(JFileChooser.CUSTOM_DIALOG);
+        fileChooser.setDialogTitle("Selecione o arquivo");
+        
+        int opt = fileChooser.showDialog(this, "Delete");
+        if (opt == JFileChooser.APPROVE_OPTION) {
+            int confirm = JOptionPane.showConfirmDialog(fileChooser, "Confirmar exclusão?");
+            if (confirm == JOptionPane.YES_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                selectedFile.delete();
+            }
+        }
+    }//GEN-LAST:event_mItemTripulanteExclusaoActionPerformed
 
     /**
      * @param args the command line arguments
