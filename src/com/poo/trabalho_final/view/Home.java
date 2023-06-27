@@ -78,6 +78,11 @@ public class Home extends javax.swing.JFrame {
         subMenuSubmarino.add(mItemSubmarinoCadastro);
 
         mItemSubmarinoExclusao.setText("Excluir");
+        mItemSubmarinoExclusao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mItemSubmarinoExclusaoActionPerformed(evt);
+            }
+        });
         subMenuSubmarino.add(mItemSubmarinoExclusao);
 
         menuEmbarcacao.add(subMenuSubmarino);
@@ -134,6 +139,24 @@ public class Home extends javax.swing.JFrame {
         SubmarinoCadastro submarinoCadastro = new SubmarinoCadastro();
         submarinoCadastro.setVisible(true);
     }//GEN-LAST:event_mItemSubmarinoCadastroActionPerformed
+
+    private void mItemSubmarinoExclusaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mItemSubmarinoExclusaoActionPerformed
+        File root = new File("./data/embarcacoes");
+        FileSystemView fsv = new SingleRootFileSystemView(root); 
+        JFileChooser fileChooser = new JFileChooser(root, fsv);
+        fileChooser.getActionMap().get("New Folder").setEnabled(false);
+        fileChooser.setDialogType(JFileChooser.CUSTOM_DIALOG);
+        fileChooser.setDialogTitle("Selecione o arquivo");
+        
+        int opt = fileChooser.showDialog(this, "Delete");
+        if (opt == JFileChooser.APPROVE_OPTION) {
+            int confirm = JOptionPane.showConfirmDialog(fileChooser, "Confirmar exclusão?");
+            if (confirm == JOptionPane.YES_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                selectedFile.delete();
+            }
+        }
+    }//GEN-LAST:event_mItemSubmarinoExclusaoActionPerformed
 
     /**
      * @param args the command line arguments
