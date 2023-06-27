@@ -1,3 +1,5 @@
 package com.poo.trabalho_final.model;
 
-public class Tripulante extends Pessoa {}
+import java.io.Serializable;
+
+public class Tripulante extends Pessoa implements Serializable {}

@@ -42,6 +42,11 @@ public class Home extends javax.swing.JFrame {
         menuTripulante.setText("Tripulante");
 
         mItemTripulanteCadastro.setText("Cadastrar");
+        mItemTripulanteCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mItemTripulanteCadastroActionPerformed(evt);
+            }
+        });
         menuTripulante.add(mItemTripulanteCadastro);
 
         mItemTripulanteExclusao.setText("Excluir");
@@ -85,6 +90,11 @@ public class Home extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mItemTripulanteCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mItemTripulanteCadastroActionPerformed
+        TripulanteCadastro tripulanteCadastro = new TripulanteCadastro();
+        tripulanteCadastro.setVisible(true);
+    }//GEN-LAST:event_mItemTripulanteCadastroActionPerformed
 
     /**
      * @param args the command line arguments
