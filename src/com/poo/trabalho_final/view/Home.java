@@ -70,6 +70,11 @@ public class Home extends javax.swing.JFrame {
         subMenuSubmarino.setText("Submarino");
 
         mItemSubmarinoCadastro.setText("Cadastrar");
+        mItemSubmarinoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mItemSubmarinoCadastroActionPerformed(evt);
+            }
+        });
         subMenuSubmarino.add(mItemSubmarinoCadastro);
 
         mItemSubmarinoExclusao.setText("Excluir");
@@ -124,6 +129,11 @@ public class Home extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_mItemTripulanteExclusaoActionPerformed
+
+    private void mItemSubmarinoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mItemSubmarinoCadastroActionPerformed
+        SubmarinoCadastro submarinoCadastro = new SubmarinoCadastro();
+        submarinoCadastro.setVisible(true);
+    }//GEN-LAST:event_mItemSubmarinoCadastroActionPerformed
 
     /**
      * @param args the command line arguments

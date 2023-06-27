@@ -1,3 +1,5 @@
 package com.poo.trabalho_final.model;
 
-public class Submarino extends Embarcacao {}
+import java.io.Serializable;
+
+public class Submarino extends Embarcacao implements Serializable {}
