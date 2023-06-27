@@ -115,6 +115,11 @@ public class Home extends javax.swing.JFrame {
         menuExcursao.setText("Excursão");
 
         mItemExcursaoCadastro.setText("Cadastrar");
+        mItemExcursaoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mItemExcursaoCadastroActionPerformed(evt);
+            }
+        });
         menuExcursao.add(mItemExcursaoCadastro);
 
         jMenuBar1.add(menuExcursao);
@@ -203,6 +208,11 @@ public class Home extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_mItemDestinoExcluirActionPerformed
+
+    private void mItemExcursaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mItemExcursaoCadastroActionPerformed
+        ExcursaoCadastro excursaoCadastro = new ExcursaoCadastro();
+        excursaoCadastro.setVisible(true);
+    }//GEN-LAST:event_mItemExcursaoCadastroActionPerformed
 
     /**
      * @param args the command line arguments
