@@ -103,6 +103,11 @@ public class Home extends javax.swing.JFrame {
         menuDestino.add(mItemDestinoCadastro);
 
         mItemDestinoExcluir.setText("Excluir");
+        mItemDestinoExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mItemDestinoExcluirActionPerformed(evt);
+            }
+        });
         menuDestino.add(mItemDestinoExcluir);
 
         jMenuBar1.add(menuDestino);
@@ -180,6 +185,24 @@ public class Home extends javax.swing.JFrame {
         DestinoCadastro destinoCadastro = new DestinoCadastro();
         destinoCadastro.setVisible(true);
     }//GEN-LAST:event_mItemDestinoCadastroActionPerformed
+
+    private void mItemDestinoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mItemDestinoExcluirActionPerformed
+        File root = new File("./data/destinos");
+        FileSystemView fsv = new SingleRootFileSystemView(root); 
+        JFileChooser fileChooser = new JFileChooser(root, fsv);
+        fileChooser.getActionMap().get("New Folder").setEnabled(false);
+        fileChooser.setDialogType(JFileChooser.CUSTOM_DIALOG);
+        fileChooser.setDialogTitle("Selecione o arquivo");
+        
+        int opt = fileChooser.showDialog(this, "Delete");
+        if (opt == JFileChooser.APPROVE_OPTION) {
+            int confirm = JOptionPane.showConfirmDialog(fileChooser, "Confirmar exclusão?");
+            if (confirm == JOptionPane.YES_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                selectedFile.delete();
+            }
+        }
+    }//GEN-LAST:event_mItemDestinoExcluirActionPerformed
 
     /**
      * @param args the command line arguments
