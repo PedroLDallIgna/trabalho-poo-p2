@@ -1,6 +1,8 @@
 package com.poo.trabalho_final.model;
 
-public class Destino {
+import java.io.Serializable;
+
+public class Destino implements Serializable {
     private String nome;
     private String latitude;
     private String longitude;

@@ -40,6 +40,9 @@ public class Home extends javax.swing.JFrame {
         subMenuSubmarino = new javax.swing.JMenu();
         mItemSubmarinoCadastro = new javax.swing.JMenuItem();
         mItemSubmarinoExclusao = new javax.swing.JMenuItem();
+        menuDestino = new javax.swing.JMenu();
+        mItemDestinoCadastro = new javax.swing.JMenuItem();
+        mItemDestinoExcluir = new javax.swing.JMenuItem();
         menuExcursao = new javax.swing.JMenu();
         mItemExcursaoCadastro = new javax.swing.JMenuItem();
 
@@ -88,6 +91,21 @@ public class Home extends javax.swing.JFrame {
         menuEmbarcacao.add(subMenuSubmarino);
 
         jMenuBar1.add(menuEmbarcacao);
+
+        menuDestino.setText("Destino");
+
+        mItemDestinoCadastro.setText("Cadastrar");
+        mItemDestinoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mItemDestinoCadastroActionPerformed(evt);
+            }
+        });
+        menuDestino.add(mItemDestinoCadastro);
+
+        mItemDestinoExcluir.setText("Excluir");
+        menuDestino.add(mItemDestinoExcluir);
+
+        jMenuBar1.add(menuDestino);
 
         menuExcursao.setText("Excursão");
 
@@ -158,6 +176,11 @@ public class Home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mItemSubmarinoExclusaoActionPerformed
 
+    private void mItemDestinoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mItemDestinoCadastroActionPerformed
+        DestinoCadastro destinoCadastro = new DestinoCadastro();
+        destinoCadastro.setVisible(true);
+    }//GEN-LAST:event_mItemDestinoCadastroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -195,11 +218,14 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem mItemDestinoCadastro;
+    private javax.swing.JMenuItem mItemDestinoExcluir;
     private javax.swing.JMenuItem mItemExcursaoCadastro;
     private javax.swing.JMenuItem mItemSubmarinoCadastro;
     private javax.swing.JMenuItem mItemSubmarinoExclusao;
     private javax.swing.JMenuItem mItemTripulanteCadastro;
     private javax.swing.JMenuItem mItemTripulanteExclusao;
+    private javax.swing.JMenu menuDestino;
     private javax.swing.JMenu menuEmbarcacao;
     private javax.swing.JMenu menuExcursao;
     private javax.swing.JMenu menuTripulante;
