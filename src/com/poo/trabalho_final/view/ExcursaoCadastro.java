@@ -96,6 +96,11 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
         });
 
         jButton4.setText("Confirmar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
 
@@ -270,6 +275,33 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_btnSelecionarTripulantesActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.excursao.setPartida(ftxPartida.getText());
+        
+        FileHandler<Excursao> fileHandler = new FileHandler();
+        
+        File root = new File("./data/excursoes");
+        root.mkdir();
+        FileSystemView fsv = new SingleRootFileSystemView(root); 
+        JFileChooser fileChooser = new JFileChooser(root, fsv);
+        fileChooser.getActionMap().get("New Folder").setEnabled(false);
+        fileChooser.setDialogTitle("Salvar como:");
+        
+        int userSelection = fileChooser.showSaveDialog(this);
+        
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            
+            try {
+                fileHandler.save(fileToSave.getAbsolutePath(), this.excursao);
+            } catch (IOException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
