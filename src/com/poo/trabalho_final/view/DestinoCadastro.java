@@ -47,8 +47,6 @@ public class DestinoCadastro extends javax.swing.JFrame {
         txProfundidade = new javax.swing.JTextField();
         btnCadastrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setText("Nome");
 
         jLabel2.setText("Latitude");

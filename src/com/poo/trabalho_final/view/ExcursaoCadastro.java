@@ -11,12 +11,13 @@ import com.poo.trabalho_final.model.Excursao;
 import com.poo.trabalho_final.model.Submarino;
 import com.poo.trabalho_final.model.Tripulante;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -53,10 +54,8 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
         btnSelecionarDestino = new javax.swing.JButton();
         lbDestinoEscolhido = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lbTripulantesEscolhidos = new javax.swing.JTextArea();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel5 = new javax.swing.JLabel();
+        lbTripulantesEscolhidos = new javax.swing.JLabel();
 
         jLabel1.setText("Submarino");
 
@@ -84,6 +83,7 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        jLabel4.setLabelFor(btnSelecionarDestino);
         jLabel4.setText("Destino");
 
         btnSelecionarDestino.setText("Selecionar");
@@ -95,9 +95,9 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
 
         jButton4.setText("Confirmar");
 
-        lbTripulantesEscolhidos.setColumns(10);
-        lbTripulantesEscolhidos.setRows(5);
-        jScrollPane1.setViewportView(lbTripulantesEscolhidos);
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+
+        lbTripulantesEscolhidos.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,8 +125,8 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(lbSubmarinoEscolhido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lbDestinoEscolhido, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(27, Short.MAX_VALUE))
+                            .addComponent(lbTripulantesEscolhidos, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(29, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(96, 96, 96)
@@ -136,6 +136,10 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
                 .addGap(213, 213, 213)
                 .addComponent(jButton4)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(106, 106, 106))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,18 +156,19 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
                         .addComponent(btnSelecionarSubmarino))
                     .addComponent(lbSubmarinoEscolhido, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(btnSelecionarTripulantes))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(btnSelecionarTripulantes)
+                    .addComponent(lbTripulantesEscolhidos, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(ftxPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addComponent(jButton4)
-                .addGap(53, 53, 53))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -250,9 +255,14 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
             }
             
             this.excursao.setTripulantes(aux);
+            
+            lbTripulantesEscolhidos.setText("<html><ul>");
             for (Tripulante t : this.excursao.getTripulantes()) {
-                lbTripulantesEscolhidos.setText(lbTripulantesEscolhidos.getText() + "- " + t.getNome() + "\n");
+                if (t == null) break;
+                lbTripulantesEscolhidos.setText(lbTripulantesEscolhidos.getText() + "<li>" + t.getNome() + "</li>");
             }
+            lbTripulantesEscolhidos.setText(lbTripulantesEscolhidos.getText() + "</ol></html>");
+            
         }
     }//GEN-LAST:event_btnSelecionarTripulantesActionPerformed
 
@@ -301,9 +311,9 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lbDestinoEscolhido;
     private javax.swing.JLabel lbSubmarinoEscolhido;
-    private javax.swing.JTextArea lbTripulantesEscolhidos;
+    private javax.swing.JLabel lbTripulantesEscolhidos;
     // End of variables declaration//GEN-END:variables
 }

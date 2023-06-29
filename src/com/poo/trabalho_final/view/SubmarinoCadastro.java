@@ -47,8 +47,6 @@ public class SubmarinoCadastro extends javax.swing.JFrame {
         txCapitao = new javax.swing.JTextField();
         btnCadastrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setText("Nome");
 
         jLabel2.setText("Ano");
