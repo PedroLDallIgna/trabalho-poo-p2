@@ -60,6 +60,7 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
         jLabel1.setText("Submarino");
 
         btnSelecionarSubmarino.setText("Selecionar");
+        btnSelecionarSubmarino.setEnabled(false);
         btnSelecionarSubmarino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelecionarSubmarinoActionPerformed(evt);
@@ -69,6 +70,7 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
         jLabel2.setText("Tripulantes");
 
         btnSelecionarTripulantes.setText("Selecionar");
+        btnSelecionarTripulantes.setEnabled(false);
         btnSelecionarTripulantes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelecionarTripulantesActionPerformed(evt);
@@ -198,6 +200,7 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
             }
         }
         
+        btnSelecionarSubmarino.setEnabled(true);
     }//GEN-LAST:event_btnSelecionarDestinoActionPerformed
 
     private void btnSelecionarSubmarinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarSubmarinoActionPerformed
@@ -223,6 +226,8 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
                 Logger.getLogger(ExcursaoCadastro.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+        btnSelecionarTripulantes.setEnabled(true);
     }//GEN-LAST:event_btnSelecionarSubmarinoActionPerformed
 
     private void btnSelecionarTripulantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarTripulantesActionPerformed

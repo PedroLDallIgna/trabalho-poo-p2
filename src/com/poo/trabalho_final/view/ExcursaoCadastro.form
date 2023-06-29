@@ -118,6 +118,7 @@
     <Component class="javax.swing.JButton" name="btnSelecionarSubmarino">
       <Properties>
         <Property name="text" type="java.lang.String" value="Selecionar"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelecionarSubmarinoActionPerformed"/>
@@ -133,6 +134,7 @@
     <Component class="javax.swing.JButton" name="btnSelecionarTripulantes">
       <Properties>
         <Property name="text" type="java.lang.String" value="Selecionar"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelecionarTripulantesActionPerformed"/>
