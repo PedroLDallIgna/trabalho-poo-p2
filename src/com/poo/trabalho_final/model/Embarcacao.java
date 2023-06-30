@@ -48,6 +48,4 @@ public abstract class Embarcacao implements Serializable  {
     public void setCapitao(Capitao capitao) {
         this.capitao = capitao;
     }
-    
-    
 }
