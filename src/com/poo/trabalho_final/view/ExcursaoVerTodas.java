@@ -96,9 +96,7 @@ public class ExcursaoVerTodas extends javax.swing.JFrame {
         html += ("<html>");
         html += ("<head>");
         html += ("<style>");
-        html += ("table, th, td {\n" +
-        "  border:1px solid black;\n" +
-        "}");
+        html += ("table, th, td { border:1px solid black; }");
         html += ("</style>");
         html += ("</head>");
         html += ("<body>");
