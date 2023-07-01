@@ -15,16 +15,15 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableModel;
 
 /**
  *
  * @author Computacao
  */
 public class ExcursaoCadastro extends javax.swing.JFrame {
-    private Excursao excursao;
+    private final Excursao excursao;
 
     /**
      * Creates new form ExcursaoCadastro
@@ -249,13 +248,18 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
         
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File[] filesToRead = fileChooser.getSelectedFiles();
+            
+            if (filesToRead.length > this.excursao.getSubmarino().getCapacidade()) {
+                JOptionPane.showMessageDialog(this, "A quantidade de passageiros escolhidos excedem a capacidade da embarcação.\nCapacidade: " + this.excursao.getSubmarino().getCapacidade() + ".\nSelecione novamente.", "Capacidade máxima excedida", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            
             Tripulante aux[] = new Tripulante[this.excursao.getSubmarino().getCapacidade()]; 
 
             int counter = 0;
             for (File fileToRead : filesToRead) {
                 try {
                     aux[counter] = fileHandler.read(fileToRead.getAbsolutePath());
-                    
                 } catch (IOException ex) {
                     Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ClassNotFoundException ex) {
