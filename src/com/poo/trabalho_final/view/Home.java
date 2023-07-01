@@ -45,6 +45,7 @@ public class Home extends javax.swing.JFrame {
         mItemDestinoExcluir = new javax.swing.JMenuItem();
         menuExcursao = new javax.swing.JMenu();
         mItemExcursaoCadastro = new javax.swing.JMenuItem();
+        mItemExcursaoViewAll = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,6 +122,14 @@ public class Home extends javax.swing.JFrame {
             }
         });
         menuExcursao.add(mItemExcursaoCadastro);
+
+        mItemExcursaoViewAll.setText("Ver todas");
+        mItemExcursaoViewAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mItemExcursaoViewAllActionPerformed(evt);
+            }
+        });
+        menuExcursao.add(mItemExcursaoViewAll);
 
         jMenuBar1.add(menuExcursao);
 
@@ -214,6 +223,11 @@ public class Home extends javax.swing.JFrame {
         excursaoCadastro.setVisible(true);
     }//GEN-LAST:event_mItemExcursaoCadastroActionPerformed
 
+    private void mItemExcursaoViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mItemExcursaoViewAllActionPerformed
+        ExcursaoVerTodas excursaoVerTodas = new ExcursaoVerTodas();
+        excursaoVerTodas.setVisible(true);
+    }//GEN-LAST:event_mItemExcursaoViewAllActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -254,6 +268,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuItem mItemDestinoCadastro;
     private javax.swing.JMenuItem mItemDestinoExcluir;
     private javax.swing.JMenuItem mItemExcursaoCadastro;
+    private javax.swing.JMenuItem mItemExcursaoViewAll;
     private javax.swing.JMenuItem mItemSubmarinoCadastro;
     private javax.swing.JMenuItem mItemSubmarinoExclusao;
     private javax.swing.JMenuItem mItemTripulanteCadastro;
