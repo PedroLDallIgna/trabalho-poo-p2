@@ -1,17 +1,21 @@
 package com.poo.trabalho_final.model;
 
-public class Excursao {
+import java.io.Serializable;
+
+public class Excursao implements Serializable {
     private Submarino submarino;
-    private Passageiro passageiros[];
+    private Tripulante tripulantes[];
     private String partida;
     private Destino destino;
 
-    public Excursao(Submarino submarino, Passageiro[] passageiros, String partida, Destino destino) {
+    public Excursao(Submarino submarino, Tripulante[] tripulantes, String partida, Destino destino) {
         this.submarino = submarino;
-        this.passageiros = passageiros;
+        this.tripulantes = tripulantes;
         this.partida = partida;
         this.destino = destino;
     }
+    
+    public Excursao() {}
 
     public Submarino getSubmarino() {
         return submarino;
@@ -21,12 +25,12 @@ public class Excursao {
         this.submarino = submarino;
     }
 
-    public Passageiro[] getPassageiros() {
-        return passageiros;
+    public Tripulante[] getTripulantes() {
+        return tripulantes;
     }
 
-    public void setPassageiros(Passageiro[] passageiros) {
-        this.passageiros = passageiros;
+    public void setTripulantes(Tripulante[] tripulantes) {
+        this.tripulantes = tripulantes;
     }
 
     public String getPartida() {

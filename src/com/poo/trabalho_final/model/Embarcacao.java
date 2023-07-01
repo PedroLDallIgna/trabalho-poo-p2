@@ -1,6 +1,8 @@
 package com.poo.trabalho_final.model;
 
-public abstract class Embarcacao {
+import java.io.Serializable;
+
+public abstract class Embarcacao implements Serializable  {
     private String nome;
     private int ano;
     private int capacidade;
