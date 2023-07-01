@@ -53,7 +53,7 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnSelecionarDestino = new javax.swing.JButton();
         lbDestinoEscolhido = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        btnCadastrarExcursao = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         lbTripulantesEscolhidos = new javax.swing.JLabel();
 
@@ -95,10 +95,10 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Confirmar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrarExcursao.setText("Confirmar");
+        btnCadastrarExcursao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnCadastrarExcursaoActionPerformed(evt);
             }
         });
 
@@ -141,7 +141,7 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(213, 213, 213)
-                .addComponent(jButton4)
+                .addComponent(btnCadastrarExcursao)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -172,7 +172,7 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(ftxPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
-                .addComponent(jButton4)
+                .addComponent(btnCadastrarExcursao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addGap(25, 25, 25))
@@ -266,17 +266,17 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
             
             this.excursao.setTripulantes(aux);
             
-            lbTripulantesEscolhidos.setText("<html><ul>");
+            String htmlTripulantesEscolhidos = "<html><ul>";
             for (Tripulante t : this.excursao.getTripulantes()) {
                 if (t == null) break;
-                lbTripulantesEscolhidos.setText(lbTripulantesEscolhidos.getText() + "<li>" + t.getNome() + "</li>");
+                htmlTripulantesEscolhidos += ("<li>" + t.getNome() + "</li>");
             }
-            lbTripulantesEscolhidos.setText(lbTripulantesEscolhidos.getText() + "</ol></html>");
+            lbTripulantesEscolhidos.setText(htmlTripulantesEscolhidos);
             
         }
     }//GEN-LAST:event_btnSelecionarTripulantesActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnCadastrarExcursaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarExcursaoActionPerformed
         this.excursao.setPartida(ftxPartida.getText());
         
         FileHandler<Excursao> fileHandler = new FileHandler();
@@ -301,7 +301,7 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
             
             this.setVisible(false);
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnCadastrarExcursaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -339,11 +339,11 @@ public class ExcursaoCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrarExcursao;
     private javax.swing.JButton btnSelecionarDestino;
     private javax.swing.JButton btnSelecionarSubmarino;
     private javax.swing.JButton btnSelecionarTripulantes;
     private javax.swing.JFormattedTextField ftxPartida;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
